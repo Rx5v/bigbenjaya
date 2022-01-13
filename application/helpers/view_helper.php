@@ -20,3 +20,10 @@ function view_admin($path, $data = null)
     $CI->load->view($path); // main content
     $CI->load->view('admin/include/footer');
 }
+
+// method to load template view Customer
+function view_customer($path, $data = null)
+{
+    $CI = &get_instance(); // replace $this in CodeIgniter    
+    $CI->load->view($path, $data); // main content    
+}

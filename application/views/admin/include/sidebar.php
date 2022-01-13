@@ -43,7 +43,7 @@
                 </li> -->
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-car-side"></i>
+                        <i class="nav-icon fas fa-car"></i>
                         <p>
                             Car
                             <i class="fas fa-angle-left right"></i>
@@ -63,7 +63,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('car/car') ?>" class="nav-link">
+                            <a href="<?= base_url('car') ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Car List</p>
                             </a>

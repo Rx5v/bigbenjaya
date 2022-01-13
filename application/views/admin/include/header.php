@@ -20,6 +20,10 @@
     <script src="<?= base_url('assets/template/adminlte/') ?>plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="<?= base_url('assets/template/adminlte/') ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTable -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
+    <script src="https:////cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
     <!-- overlayScrollbars -->
     <script src="<?= base_url('assets/template/adminlte/') ?>plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <!-- AdminLTE App -->
@@ -33,9 +37,10 @@
     <script src="<?= base_url('assets/template/adminlte/') ?>plugins/jquery-mapael/maps/usa_states.min.js"></script>
     <!-- ChartJS -->
     <script src="<?= base_url('assets/template/adminlte/') ?>plugins/chart.js/Chart.min.js"></script>
+    <!-- SweetAlert -->
+    <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
 
-    <!-- Data Tables -->
-    <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+
 
 </head>

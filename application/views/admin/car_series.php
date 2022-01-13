@@ -15,12 +15,13 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <button class="btn btn-sm btn-primary mb-2" id="addButton"> + Add Type </button>
+                                <button class="btn btn-sm btn-primary mb-2" id="addButton"> + Add Series </button>
                                 <table class="table table-bordered" id="typeTable">
                                     <thead class="text-center">
                                         <tr>
                                             <th>No</th>
                                             <th>Type Name</th>
+                                            <th>Series Name</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -40,7 +41,7 @@
     <div class="modal-dialog ">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">+ Add Type</h5>
+                <h5 class="modal-title">+ Add Series</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -48,8 +49,20 @@
             <form action="" method="POST" id="formAdd">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="type">Type Name</label>
-                        <input type="text" class="form-control" id="type" placeholder="Type Name e.g : Avanza, etc." name="type">
+                        <label for="type">Example multiple select</label>
+                        <select class="form-control" id="type" name="type">
+                            <option>-- Select --</option>
+                            <?php
+                            $q = $this->db->get('car_type')->result();
+                            foreach ($q as $op) :
+                            ?>
+                                <option value="<?= $op->id ?>"><?= $op->type ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="series">Series Name</label>
+                        <input type="text" class="form-control" id="series" placeholder="Series Name e.g : Avanza, etc." name="series">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -69,7 +82,7 @@
     function showData() {
         $.ajax({
             type: "POST",
-            url: "<?= base_url('car/getDataType') ?>", // Url to controller
+            url: "<?= base_url('car/getDataSeries') ?>", // Url to controller
             dataType: "JSON",
             success: function(data) {
                 $("#typeRow").html(data.list) // Fetch data into tbody table                
@@ -87,7 +100,7 @@
             e.preventDefault() // to prevent web refresh
             $.ajax({
                 type: "POST",
-                url: "<?= base_url('car/save/1') ?>", // Url to controller
+                url: "<?= base_url('car/save/2') ?>", // Url to controller
                 dataType: "JSON",
                 data: $("#formAdd").serialize(), //get data from form input                
                 success: function(data) {
@@ -120,7 +133,7 @@
             if (result.isConfirmed) {
                 $.ajax({
                     type: "POST",
-                    url: "<?= base_url('car/delete/1') ?>",
+                    url: "<?= base_url('car/delete/2') ?>",
                     dataType: "JSON",
                     data: {
                         id: id

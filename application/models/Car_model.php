@@ -3,8 +3,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Car_model extends CI_Model
 {
-    var $column_order = array('a.id', 'b.type', 'c.series', 'a.plate_number', 'd.status'); //Sesuaikan dengan field
-    var $column_search = array('a.id', 'b.type', 'c.series', 'a.plate_number', 'd.status'); //field yang diizin untuk pencarian 
+    var $column_order = array('a.id', 'b.type', 'c.series', 'a.plate_number', 'd.status'); // field allowed to ordered
+    var $column_search = array('a.id', 'b.type', 'c.series', 'a.plate_number', 'd.status'); // field allowed to search
     var $order = array('a.id' => 'ASC'); // default order 
 
     private function _get_datatables_query()
@@ -14,23 +14,22 @@ class Car_model extends CI_Model
         $this->db->from('car a');
         $this->db->join('car_type b', 'a.car_type_id = b.id', 'left');
         $this->db->join('car_series c', 'a.car_series_id = c.id', 'left');
-        $this->db->join('statuss d', 'a.status_id = d.id', 'left');
+        $this->db->join('status d', 'a.status_id = d.id', 'left');
 
 
 
         $i = 0;
 
-        foreach ($this->column_search as $item) // looping awal
+        foreach ($this->column_search as $item) // first looping
         {
-            if ($_POST['search']['value']) // jika datatable mengirimkan pencarian dengan metode POST
+            if ($_POST['search']['value']) // if datatable send search by POST method
             {
 
-                if ($i === 0) // looping awal
-                {
-                    $this->db->group_start();
-                    $this->db->like($item, $_POST['search']['value']);
+                if ($i === 0) {
+                    $this->db->group_start(); // start grouping
+                    $this->db->like($item, $_POST['search']['value']); // Search
                 } else {
-                    $this->db->or_like($item, $_POST['search']['value']);
+                    $this->db->or_like($item, $_POST['search']['value']); // Search
                 }
 
                 if (count($this->column_search) - 1 == $i)
@@ -56,14 +55,14 @@ class Car_model extends CI_Model
         return $query->result();
     }
 
-    function count_filtered()
+    function count_filtered() // to show how much data filtered
     {
         $this->_get_datatables_query();
         $query = $this->db->get();
         return $query->num_rows();
     }
 
-    public function count_all()
+    public function count_all() // to show how much data available
     {
         $this->db->from('car');
         return $this->db->count_all_results();

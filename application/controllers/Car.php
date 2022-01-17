@@ -133,23 +133,24 @@ class Car extends CI_Controller
             ];
 
             echo $this->car_model->save($data, $table);
+        } elseif ($condition == 3) {
+            $series = $this->input->post('series');
+            $type = $this->input->post('type');
+            $plat = $this->input->post('plat');
+            $table = "car";
+            $data = [
+                'car_series_id' => $series,
+                'car_type_id' => $type,
+                'plate_number' => $plat,
+                'status_id' => '1'
+
+            ];
+
+            echo $this->car_model->save($data, $table);
         }
     }
     function saveList()
     {
-        $series = $this->input->post('series');
-        $type = $this->input->post('type');
-        $plat = $this->input->post('plat');
-        $table = "car";
-        $data = [
-            'car_series_id' => $series,
-            'car_type_id' => $type,
-            'plate_number' => $plat,
-            'status_id' => '1'
-
-        ];
-
-        echo $this->db->insert($table, $data);
     }
     function delete($condition)
     {

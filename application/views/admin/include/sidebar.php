@@ -70,6 +70,12 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('driver') ?>" class="nav-link">
+                        <i class="fas fa-user-tie nav-icon"></i>
+                        <p>Driver</p>
+                    </a>
+                </li>
                 <!-- <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="fas fa-shopping-basket nav-icon"></i>

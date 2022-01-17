@@ -47,4 +47,41 @@ class Pesanan extends CI_Controller
         );
         echo json_encode($output);
     }
+
+    public function prosesOrder()
+    {
+        $id = $this->input->post('id');
+
+        $data = $this->db->where('order_number', $id)
+            ->get('order_head')
+            ->result();
+
+        echo json_encode($data);
+    }
+
+    public function dropdownNoPlat()
+    {
+        $id = $this->input->post('id');
+        $list = "";
+        $data = $this->db->where('car_type_id', $id)
+            ->get('car')
+            ->result();
+        foreach ($data as $dt) {
+            $list .= '<option value="' . $dt->id . '">' . $dt->plate_number . '</option>';
+        }
+        $result = array('list' => $list);
+        echo json_encode($result);
+    }
+
+    public function cancelOrder()
+    {
+        $data = array(
+            'status' => 3,
+        );
+
+        $result = $this->db->where('order_number', $this->input->post('id'))
+            ->update('order_head', $data);
+
+        echo json_encode($result);
+    }
 }

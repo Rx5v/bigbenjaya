@@ -11,7 +11,7 @@
  Target Server Version : 100422
  File Encoding         : 65001
 
- Date: 13/01/2022 10:14:13
+ Date: 17/01/2022 08:32:18
 */
 
 SET NAMES utf8mb4;
@@ -28,13 +28,16 @@ CREATE TABLE `car`  (
   `car_type_id` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `car_series_id` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of car
 -- ----------------------------
 INSERT INTO `car` VALUES (1, '1312312', '1', '1', '5');
 INSERT INTO `car` VALUES (7, '1312312', '1', '1', '6');
+INSERT INTO `car` VALUES (8, 'AD 177013 XD', '1', '1', '5');
+INSERT INTO `car` VALUES (9, 'AB 228922 XP', '1', '1', '6');
+INSERT INTO `car` VALUES (10, 'H 45 U', '1', '1', '5');
 
 -- ----------------------------
 -- Table structure for car_series
@@ -82,9 +85,20 @@ CREATE TABLE `driver`  (
   `id` int(6) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `pict` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `status_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `is_active` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of driver
+-- ----------------------------
+INSERT INTO `driver` VALUES (1, 'Nama customer', '1312', '219347-P0VB16-4936.jpg', NULL, '0');
+INSERT INTO `driver` VALUES (2, 'Nama customer', '13123', 'wp346534311.jpg', NULL, '0');
+INSERT INTO `driver` VALUES (3, 'Owi', '08123456', 'ha.jpg', '1', '0');
+INSERT INTO `driver` VALUES (4, 'Mak Banteng', '0876543123', 'pakde.jpg', '1', '1');
+INSERT INTO `driver` VALUES (5, 'Owii - Kunn', '081234567', 'monyet_cukur2.jpg', '1', '1');
 
 -- ----------------------------
 -- Table structure for order_detail

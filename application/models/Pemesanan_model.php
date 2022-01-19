@@ -32,18 +32,21 @@ class Pemesanan_model extends CI_Model
         $data  = array(
             'order_number'  => $code,
             'customer_name' => $this->input->post('namaPemesan'),
+            'guest_name'    => $this->input->post('namaTamu'),
             'phone'         => $this->input->post('nomorHp'),
             'pickup'        => $this->input->post('alamatPenjemputan'),
             'destination'   => $this->input->post('alamatTujuan'),
             'pickup_date'   => $this->input->post('tanggalPengambilan'),
             'return_date'   => $this->input->post('tanggalPengembalian'),
+            'status'        => 1,
         );
 
         $this->db->insert('order_head', $data);
 
         $car = array(
             'order_number'  => $code,
-            'car_id'        => $this->input->post('mobil'),
+            'car_type'      => $this->input->post('mobil'),
+            'status'        => 1,
         );
 
         $this->db->insert('order_detail', $car);

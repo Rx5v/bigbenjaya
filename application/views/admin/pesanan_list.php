@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Pesanan Masuk</h1>
+                    <h1 class="m-0">Daftar Pesanan</h1>
                 </div>
             </div>
         </div>
@@ -37,12 +37,12 @@
     </section>
 </div>
 
-<!-- Modal Proses -->
+<!-- Modal Edit -->
 <div class="modal fade" id="modalInput" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Input Data</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Edit Pesanan</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -55,13 +55,13 @@
                             <div class="form-group row">
                                 <label for="pemesan" class="col-sm-2 col-form-label">Pemesan</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="pemesan" class="form-control" id="pemesan" placeholder="Pemesan" readonly>
+                                    <input type="text" name="pemesan" class="form-control" id="pemesan" placeholder="Pemesan">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="tamu" class="col-sm-2 col-form-label">Nama Tamu</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="tamu" class="form-control" id="tamu" placeholder="Nama Tamu" readonly>
+                                    <input type="text" name="tamu" class="form-control" id="tamu" placeholder="Nama Tamu">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -95,25 +95,25 @@
                             <div class="form-group row">
                                 <label for="alamattujuan" class="col-sm-2 col-form-label">Alamat Tujuan</label>
                                 <div class="col-sm-10">
-                                    <textarea type="text" name="alamattujuan" class="form-control" id="alamattujuan" rows="2" placeholder="Alamat Tujuan" readonly></textarea>
+                                    <textarea type="text" name="alamattujuan" class="form-control" id="alamattujuan" rows="2" placeholder="Alamat Tujuan"></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="alamatjemput" class="col-sm-2 col-form-label">Alamat Jemput</label>
                                 <div class="col-sm-10">
-                                    <textarea type="text" name="alamatjemput" class="form-control" id="alamatjemput" rows="2" placeholder="Alamat Jemput" readonly></textarea>
+                                    <textarea type="text" name="alamatjemput" class="form-control" id="alamatjemput" rows="2" placeholder="Alamat Jemput"></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="waktujemput" class="col-sm-2 col-form-label">Waktu Penjemputan</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="waktujemput" class="form-control" id="waktujemput" placeholder="Waktu Penjemputan" readonly>
+                                    <input type="date" name="waktujemput" class="form-control" id="waktujemput" placeholder="Waktu Penjemputan">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="pengembalian" class="col-sm-2 col-form-label">Rencana Pengembalian</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="pengembalian" class="form-control" id="pengembalian" placeholder="Rencana Pengembalian" readonly>
+                                    <input type="date" name="pengembalian" class="form-control" id="pengembalian" placeholder="Rencana Pengembalian">
                                 </div>
                             </div>
                         </div>
@@ -137,7 +137,7 @@
             "order": [],
 
             "ajax": {
-                "url": "<?= base_url() ?>/pesanan/getdata",
+                "url": "<?= base_url() ?>/pesanan/getdatalist",
                 "type": "POST",
             },
 
@@ -148,7 +148,7 @@
         })
     })
 
-    $(document).on('click', '.btn-input', function(e) {
+    $(document).on('click', '.btn-edit', function(e) {
         e.preventDefault()
         let id = $(this).data('id')
         $('#modalInput').modal('show')
@@ -168,8 +168,12 @@
                 $('#alamatjemput').val(data[0].pickup)
                 $('#waktujemput').val(data[0].pickup_date)
                 $('#pengembalian').val(data[0].return_date)
+                $('#pengemudi').val(data[0].driver_id)
                 $('#mobil').val(data[0].car_type)
                 getNoPlat(data[0].car_type)
+                setTimeout(function() {
+                    $('#noplat').val(data[0].car_id)
+                }, 500)
             },
             error: function() {
                 console.log("error")
@@ -206,7 +210,7 @@
         if (confirm("Are you sure?") == true) {
             $.ajax({
                 type: "POST",
-                url: "<?= base_url() ?>/pesanan/confirmOrder",
+                url: "<?= base_url() ?>/pesanan/editOrder",
                 processData: false,
                 contentType: false,
                 cache: false,
@@ -216,7 +220,6 @@
                 success: function(data) {
                     $('#formInput').trigger('reset')
                     $('#modalInput').modal('hide')
-                    table.ajax.reload()
                 },
                 error: function() {
                     console.log("error")

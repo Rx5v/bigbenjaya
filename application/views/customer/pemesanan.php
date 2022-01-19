@@ -38,11 +38,17 @@
                                         <input type="text" name="namaPemesan" class="form-control form-control-border border-width-2" id="namaPemesan" placeholder="Nama Pemesan">
                                     </div>
                                     <div class="form-group">
+                                        <input type="text" name="namaTamu" class="form-control form-control-border border-width-2" id="namaTamu" placeholder="Nama Tamu">
+                                    </div>
+                                    <div class="form-group">
                                         <input type="text" name="nomorHp" class="form-control form-control-border border-width-2" id="nomorHp" placeholder="Nomor Hp">
                                     </div>
                                     <div class="form-group">
                                         <select type="text" name="mobil" class="form-control form-control-border border-width-2" id="mobil">
                                             <option selected disabled>Mobil yang dipesan</option>
+                                            <?php foreach ($this->db->get('car_type')->result() as $car) : ?>
+                                                <option value="<?= $car->id ?>"><?= $car->type ?></option>
+                                            <?php endforeach ?>
                                         </select>
                                     </div>
                                     <div class="form-group">

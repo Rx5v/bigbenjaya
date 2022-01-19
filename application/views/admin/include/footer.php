@@ -13,12 +13,6 @@
     </div>
 </footer>
 </div>
-<<<<<<< HEAD
-<!-- ./wrapper -->
-
-
-=======
->>>>>>> d5a8b1d05f69d073c041ee0cc0362494615d2527
 </body>
 
 </html>

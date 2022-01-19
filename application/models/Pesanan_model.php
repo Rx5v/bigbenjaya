@@ -9,10 +9,11 @@ class Pesanan_model extends CI_Model
     }
 
     # Datatable
-    private function _get_datatables_query($column_order, $column_search, $order)
+    private function _get_datatables_query($column_order, $column_search, $order, $status)
     {
         $this->db->select('*');
         $this->db->from('order_head');
+        $this->db->where('status', $status);
 
         $i = 0;
 
@@ -39,9 +40,9 @@ class Pesanan_model extends CI_Model
         }
     }
 
-    function get_datatables($column_order, $column_search, $order)
+    function get_datatables($column_order, $column_search, $order, $status)
     {
-        $this->_get_datatables_query($column_order, $column_search, $order);
+        $this->_get_datatables_query($column_order, $column_search, $order, $status);
         if ($_POST['length'] != -1) {
             $this->db->limit($_POST['length'], $_POST['start']);
         }
@@ -49,17 +50,65 @@ class Pesanan_model extends CI_Model
         return $query->result();
     }
 
-    function count_filtered($column_order, $column_search, $order)
+    function count_filtered($column_order, $column_search, $order, $status)
     {
-        $this->_get_datatables_query($column_order, $column_search, $order);
+        $this->_get_datatables_query($column_order, $column_search, $order, $status);
 
         $query = $this->db->get();
         return $query->num_rows();
     }
 
-    public function count_all()
+    public function count_all($status)
     {
         $this->db->from('order_head');
+        $this->db->where('status', $status);
         return $this->db->count_all_results();
+    }
+
+    public function confirm()
+    {
+        $id = $this->input->post('id');
+
+        if ($id != null || $id != "") {
+            $head = array(
+                'status'    => 2,
+            );
+            $this->db->where('order_number', $id);
+            $this->db->update('order_head', $head);
+
+            $data = array(
+                'car_id'    => $this->input->post('noplat'),
+                'driver_id' => $this->input->post('pengemudi'),
+                'status'    => 2,
+            );
+            $this->db->where('order_number', $id);
+            $this->db->update('order_detail', $data);
+        }
+    }
+
+    public function update()
+    {
+        $id = $this->input->post('id');
+
+        if ($id != null || $id != "") {
+            $head = array(
+                'customer_name' => $this->input->post('pemesan'),
+                'guest_name'    => $this->input->post('tamu'),
+                'pickup'        => $this->input->post('alamatjemput'),
+                'destination'   => $this->input->post('alamattujuan'),
+                'pickup_date'   => $this->input->post('waktujemput'),
+                'return_date'   => $this->input->post('pengembalian'),
+            );
+            $this->db->where('order_number', $id);
+            $this->db->update('order_head', $head);
+
+            $data = array(
+                'car_id'    => $this->input->post('noplat'),
+                'car_type'  => $this->input->post('mobil'),
+                'driver_id' => $this->input->post('pengemudi'),
+            );
+            $this->db->where('order_number', $id);
+            $this->db->update('order_detail', $data);
+        }
     }
 }

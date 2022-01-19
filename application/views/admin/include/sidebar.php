@@ -3,7 +3,7 @@
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
         <img src="<?= base_url('assets/template/adminlte/') ?>dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">AdminLTE 3</span>
+        <span class="brand-text font-weight-light">BigBenJaya</span>
     </a>
 
     <!-- Sidebar -->
@@ -14,7 +14,7 @@
                 <img src="<?= base_url('assets/template/adminlte/') ?>dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">Admin</a>
             </div>
         </div>
 
@@ -52,19 +52,19 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?= base_url('car/car_type') ?>" class="nav-link">
-                                <i class="fas fa-tag nav-icon"></i>
+                                <i class="fas fa-car-side nav-icon"></i>
                                 <p>Car type</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="<?= base_url('car/car_series') ?>" class="nav-link">
-                                <i class="fas fa-tag nav-icon"></i>
+                                <i class="fas fa-palette nav-icon"></i>
                                 <p>Car Series</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="<?= base_url('car') ?>" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                                <i class="fas fa-list nav-icon"></i>
                                 <p>Car List</p>
                             </a>
                         </li>
@@ -76,35 +76,29 @@
                         <p>Driver</p>
                     </a>
                 </li>
-                <!-- <li class="nav-item">
+                <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="fas fa-shopping-basket nav-icon"></i>
+                        <i class="nav-icon fas fa-shopping-cart"></i>
                         <p>
-                            Order
+                            Transaction
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/forms/general.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
+                            <a href="<?= base_url('pesanan') ?>" class="nav-link">
+                                <i class="fas fa-sign-in-alt nav-icon"></i>
+                                <p>Incoming Order</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('pesanan/list') ?>" class="nav-link">
+                                <i class="fas fa-cash-register nav-icon"></i>
                                 <p>Order List</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="pages/forms/advanced.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Complete</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/forms/editors.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>On Going</p>
-                            </a>
-                        </li>
                     </ul>
-                </li> -->
+                </li>
             </ul>
         </nav>
     </div>

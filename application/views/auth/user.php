@@ -47,15 +47,18 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-8">
+                        <div class="col-7">
                         </div>
                         <!-- /.col -->
-                        <div class="col-4">
+                        <div class="col-5">
                             <button type="submit" class="btn btn-primary btn-block">Log In</button>
                         </div>
                         <!-- /.col -->
                     </div>
                 </form>
+                <p class="mb-0">
+                    <a href="<?= base_url() ?>auth/register" class="text-center">Register a new membership</a>
+                </p>
             </div>
             <!-- /.card-body -->
         </div>

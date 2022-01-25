@@ -23,13 +23,14 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="login-logo">
-                    <a href="<?= base_url() ?>/assets/template/adminlte/index2.html"><b>BIG BEN</b>JAYA</a>
+                    <span><b>BIG BEN</b>JAYA</span>
+                    <img src="<?= base_url() ?>assets/img/logo_bigbenjaya.jpg" class="rounded" width="20%" alt="logo">
                 </div>
                 <!-- /.login-logo -->
                 <div class="card">
                     <div class="card-body">
 
-                        <p class="login-box-msg">Form Pemesanan</p>
+                        <h5 class="login-box-msg">Form Pemesanan</h5>
 
                         <form id="formOrder" enctype="multipart/form-data">
                             <div class="row">
@@ -74,7 +75,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 mt-3 text-center">
-                                    <button type="submit" class="btn btn-default">Kirim</button>
+                                    <button type="submit" class="btn btn-secondary">&nbsp;&nbsp;&nbsp;Kirim&nbsp;&nbsp;&nbsp;</button>
                                 </div>
                             </div>
                         </form>

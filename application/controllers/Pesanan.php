@@ -6,6 +6,9 @@ class Pesanan extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        if ($this->session->userdata('user_logged') === null) {
+            redirect('auth/admin');
+        }
         $this->load->model('Pesanan_model');
     }
 
@@ -75,7 +78,7 @@ class Pesanan extends CI_Controller
             $row[] = $result->created_at;
             $row[] = '<div class="text-center">' .
                 '<button type="button" class="btn btn-sm btn-edit" data-id="' . $result->order_number . '"><i class="fas fa-edit text-primary"></i></button>' .
-                '<button type="button" class="btn btn-sm btn-print" data-id="' . $result->order_number . '"><i class="fas fa-print text-dark"></i></button>' .
+                '<a class="btn btn-sm btn-print" href="' . base_url() . 'pesanan/printSuratJalan/' . $result->order_number . '" target="_blank"><i class="fas fa-print text-dark"></i></a>' .
                 '<button type="button" class="btn btn-sm btn-cancel" data-id="' . $result->order_number . '"><i class="fas fa-trash text-danger"></i></button>' .
                 '</div>';
             $data[] = $row;
@@ -142,5 +145,20 @@ class Pesanan extends CI_Controller
             ->update('order_head', $data);
 
         echo json_encode($result);
+    }
+
+    public function printSuratJalan($id)
+    {
+        $this->load->library("Pdfgenerator");
+        $this->data['data'] = $this->Pesanan_model->surat_jalan($id);
+        $this->data['title_pdf'] = 'Surat Jalan';
+
+        $file_pdf = 'Surat Jalan';
+        $paper = 'A4';
+        $orientation = "portrait";
+
+        $html = $this->load->view('admin/surat_jalan', $this->data, true);
+
+        $this->pdfgenerator->generate($html, $file_pdf, $paper, $orientation);
     }
 }

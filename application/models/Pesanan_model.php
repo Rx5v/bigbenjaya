@@ -111,4 +111,16 @@ class Pesanan_model extends CI_Model
             $this->db->update('order_detail', $data);
         }
     }
+
+    public function surat_jalan($id)
+    {
+        $this->db->select('a.*,c.plate_number,d.type,e.name as driver');
+        $this->db->from('order_head as a');
+        $this->db->join('order_detail as b', 'a.order_number = b.order_number', 'left');
+        $this->db->join('car as c', 'b.car_id = c.id', 'left');
+        $this->db->join('car_type as d', 'b.car_type = d.id', 'left');
+        $this->db->join('driver as e', 'b.driver_id = e.id', 'left');
+        $this->db->where('a.order_number', $id);
+        return $this->db->get()->result();
+    }
 }

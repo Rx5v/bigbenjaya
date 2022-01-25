@@ -24,7 +24,7 @@ class Auth_model extends CI_Model
                     if ($user->level == 1) {
                         return $data["result"] = "admin";
                     } elseif ($user->level == 2) {
-                        return $data["result"] = "user";
+                        return $data["result"] = "customer";
                     }
                 } else {
                     return $data["result"] = "not_active";
@@ -43,6 +43,19 @@ class Auth_model extends CI_Model
             'level'         => $row->level,
         );
         $this->session->set_userdata($sess);
+    }
+
+    public function signin()
+    {
+        $data = array(
+            'user_name' => $this->input->post('username'),
+            'email'     => $this->input->post('email'),
+            'password'  => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+            'level'     => 2,
+            'is_active' => 1,
+        );
+
+        return $this->db->insert('user', $data);
     }
 
     public function doLogout()

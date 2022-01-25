@@ -21,6 +21,11 @@ class Auth extends CI_Controller
         $this->load->view('auth/admin');
     }
 
+    public function register()
+    {
+        $this->load->view('auth/register');
+    }
+
     public function login()
     {
         $this->form_validation->set_rules('email', 'Username', 'required|trim', [
@@ -38,6 +43,18 @@ class Auth extends CI_Controller
             }
         } else {
             $data = array("result" => $this->auth_model->doLogin());
+            echo json_encode($data);
+        }
+    }
+
+    public function signin()
+    {
+        $this->form_validation->set_rules('email', 'Email', 'is_unique[user.email]');
+        if ($this->form_validation->run() == false) {
+            $data["result"] = "exist";
+            echo json_encode($data);
+        } else {
+            $data = $this->auth_model->signin();
             echo json_encode($data);
         }
     }

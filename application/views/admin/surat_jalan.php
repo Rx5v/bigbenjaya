@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php foreach ($data as $dt) {
+    $nomor = $dt->order_number;
+    $pemesan = $dt->customer_name;
+    $tamu = $dt->guest_name;
+    $mobil = $dt->type;
+    $noplat = $dt->plate_number;
+    $driver = $dt->driver;
+    $tujuan = $dt->destination;
+    $alamatjemput = $dt->pickup;
+    $waktujemput = $dt->pickup_date;
+    $waktuselesai = $dt->return_date;
+} ?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,83 +27,178 @@
         .center {
             text-align: center;
         }
+
+        .tabel_barang {
+            border: 2px solid black;
+            border-collapse: collapse;
+            margin-top: 10px;
+            margin-bottom: 12px;
+        }
+
+        .tabel_barang td {
+            border: 1px solid black;
+            padding: 4px 4px;
+        }
+
+        .input {
+            border: 1px solid black;
+            padding: 5px 5px;
+        }
     </style>
 </head>
 
 <body>
     <div class="">
         <div style="float: left;">
-            <img src="<?= base_url() ?>assets/img/logo_bigbenjaya.jpg" width="12%" alt="">
+            <img src="<?= base_url() ?>assets/img/logo_bigbenjaya.jpg" width="22%" alt="">
         </div>
-        <div class="center">
-            <p class="text" style="font-size:16px;font-weight:bold;font-style:normal;text-transform:uppercase;margin:0cm;margin-left:0cm;">pemerintah&nbsp;provisi&nbsp;jawa&nbsp;tengah</p>
-            <p class="text" style="font-size:18.667px;font-weight: normal;font-style:normal;text-transform:normal;margin:0cm;margin-top:0.2cm;">RUMAH&nbsp;SAKIT&nbsp;UMUM&nbsp;DAERAH&nbsp;Dr.MOEWARDI</p>
-            <p class="text" style="font-size:12px;font-weight:bold;font-style:normal;text-transform:capitalize;margin:0cm;margin-top:0cm;">jalan kolonel sutarto 132 surakarta kodepos 57126 telepon (0271) 634 634</p>
-            <p class="text" style="font-size:12px;font-weight:normal;font-style:normal;margin:0cm;margin-top:0cm;">Faksimile&nbsp;(0271)&nbsp;637412&nbsp;,Email&nbsp;:&nbsp;rsmoewadi@jatengprov.go.id</p>
-            <p class="text" style="font-size:12px;font-weight:normal;font-style:normal;margin:0cm;margin-top:0cm;">Website&nbsp;:&nbsp;rsmoewadi.jatengprov.go.id</p>
+        <div style="text-align: left;">
+            <p class="text" style="font-size:17px;font-weight:normal;font-style:normal;text-transform:capitalize;margin:0cm;margin-top:0.2cm;">Jl. Srinindito Timur IV RT.03 RW.04</p>
+            <p class="text" style="font-size:17px;font-weight:normal;font-style:normal;text-transform:capitalize;margin:0.1cm;">Semarang</p>
+            <p class="text" style="font-size:17px;font-weight:normal;font-style:normal;text-transform:capitalize;margin:0.1cm;">Telp. 081 66 1368</p>
+            <p class="text" style="font-size:17px;font-weight:normal;font-style:normal;text-transform:capitalize;margin:0cm;margin-right:1.5cm;text-align:right">Nomor : <?= $nomor ?></p>
         </div>
     </div>
+
     <hr style="border: 1px solid black;">
-    <p class="text" style="font-size:16px;font-weight:normal;font-style:normal;text-align:justify;margin:0cm;margin-left:56%;margin-right:0cm;margin-top:1rem;text-align: left;">Surakarta, 22 Oktober 2021</p>
-    <div style="width: 56%; float:left;">
-        <table class="text" style="font-size:16px;" widht="100%">
-            <tr>
-                <td>Nomor</td>
-                <td>:&nbsp;177/0/13</td>
-            </tr>
-            <tr>
-                <td>Lampiran</td>
-                <td>:&nbsp;-</td>
-            </tr>
-            <tr>
-                <td>Perihal</td>
-                <td>:&nbsp;Ijin Lahan Praktek</td>
-            </tr>
-        </table>
-    </div>
-    <div style="width: 44%; float:left;">
-        <table class="text" style="font-size:16px;" widht="100%">
-            <tr>
-                <td>Kepada Yth. :</td>
-            </tr>
-            <tr>
-                <td>Ketua Prodi DIII Rekam Medis & Informasi Kesehatan Universitas Dian Nuswantoro</td>
-            </tr>
-            <tr>
-                <td>Di <u>Klaten</u></td>
-            </tr>
-        </table>
-    </div>
+    <p class="text center" style="font-size:24px;font-weight:bold;font-style:normal;text-transform:uppercase;margin:0cm;margin-top:1rem;"><u>Surat Perintah Jalan</u></p>
+
     <!-- body -->
-    <p class="text" style="font-size:16px;font-weight:normal;font-style:normal;text-align:justify;margin:0cm;margin-left:0cm;margin-top:0cm;padding-top: 7rem;">Dengan hormat,</p>
-    <p class="text" style="font-size:16px;font-weight:normal;font-style:normal;text-align:justify;margin:0cm;margin-left:0cm;margin-top:0cm;">Menindaklanjuti surat dari Ketua Prodi DIII Rekam Medis & Informasi Kesehatan Universitas Dian Nuwantoro Semarang nomor : 066/A.30/UDN- 05/V/2021 tanggal 08 Mei 2021 tentang Permohonan Praktek bagi mahasiswa, dengan ini disampaikan bahwa pada prinsipnya kami tidak keberatan menerima mahasiswa saudara untuk melaksanakan Praktek Kerja Lapangan (PKL) di RSUD Dr. Moewardi. Kegiatan tersebut di alokasikan pada tanggal 14 Juni – 17 Juli 2021 sebanyak 8 mahasiswa, Mahasiswa diwajibkan membawa :</p>
-    <ol class="text" style="font-size:16px;font-weight:normal;margin: 0cm;margin-left: -1rem;">
-        <li>Bukti Test Antigen dengan hasil negatif yang masih berlaku ( H -1)</li>
-        <li>Surat ijin orangtua bermaterai</li>
-        <li>Menyetujui Protokol Kesehatan dalam Pola Tatanan Normal Baru (TNB) (terlampir) yang ditanda tangani oleh Institusi pendidikan & peserta didik.</li>
-    </ol>
-    <p class="text" style="font-size:16px;font-weight:normal;font-style:normal;text-align:justify;margin:0cm;margin-left:0cm;margin-top:1rem;">Untuk koordinasi lebih lanjut dapat menghubungi bagian Diklit C.q Ibu Titiek Praptini, SKM MKes. dengan no telpon 0271-634634 Ext 153. Hp.082136118998</p>
-    <p class="text" style="font-size:16px;font-weight:normal;font-style:normal;text-align:justify;margin:0cm;margin-left:0cm;margin-top:0cm;">Demikian atas perhatian dan kerja sama yang baik kami ucapkan terima kasih.</p>
-    <div style="clear:both"></div>
-    <table width="100%" style="margin-top: 1cm;">
+    <table class="text" style="font-size:16px;margin-top:1rem;" width="100%">
         <tr>
-            <td>
-                <div class="center" style="margin-left:10cm;">
-                    <p class="text" style="font-size:16px;">
-                        An. DIREKTUR RSUD Dr. MOEWARDI<br>
-                        PROVINSI JAWA TENGAH<br>
-                        Wakil Direktur Umum<br>
-                        <br><br><br><br><br>
-                        <u>dr. Heri Dwi Purnomo, Sp An</u>
-                    </p>
-                    <p class="text">
-                        Pembina Tk 1<br>
-                        NIP.&nbsp;19661013 200604 1 001
-                    </p>
-                </div>
-            </td>
+            <td width="35%" style="text-align: right;">Pemesan &nbsp;</td>
+            <td width="75%" class="input"><?= $pemesan ?></td>
+        </tr>
+        <tr>
+            <td width="35%" style="text-align: right;">Nama Tamu &nbsp;</td>
+            <td width="75%" class="input"><?= $tamu ?></td>
+        </tr>
+        <tr>
+            <td width="35%" style="text-align: right;">Mobil &nbsp;</td>
+            <td width="75%" class="input"><?= $mobil ?></td>
+        </tr>
+        <tr>
+            <td width="35%" style="text-align: right;">No.Pol &nbsp;</td>
+            <td width="75%" class="input"><?= $noplat ?></td>
+        </tr>
+        <tr>
+            <td width="35%" style="text-align: right;">Nama Pengemudi &nbsp;</td>
+            <td width="75%" class="input"><?= $driver ?></td>
+        </tr>
+        <tr>
+            <td width="35%" style="text-align: right;">Tujuan &nbsp;</td>
+            <td width="75%" class="input"><?= $tujuan ?></td>
+        </tr>
+        <tr>
+            <td width="35%" style="text-align: right;">Alamat Jemput / Antar &nbsp;</td>
+            <td width="75%" class="input"><?= $alamatjemput ?></td>
+        </tr>
+        <tr>
+            <td width="35%" style="text-align: right;">Waktu Penjemputan &nbsp;</td>
+            <td width="75%" class="input"><?= $waktujemput ?></td>
+        </tr>
+        <tr>
+            <td width="35%" style="text-align: right;">Rencana Selesai &nbsp;</td>
+            <td width="75%" class="input"><?= $waktuselesai ?></td>
         </tr>
     </table>
+
+    <p class="text" style="font-size:16px;font-weight:normal;font-style:normal;text-align:justify;margin:0cm;margin-left:0cm;margin-top:0.5cm;">REALISASI PELAYANAN</p>
+    <table width="100%" class="tabel_barang" style="font-size:16px;">
+        <thead>
+            <tr class="center">
+                <td rowspan="2">Tanggal</td>
+                <td colspan="2">Waktu</td>
+                <td rowspan="2">Tujuan</td>
+                <td rowspan="2">Paraf Tamu</td>
+            </tr>
+            <tr class="center">
+                <td>Mulai</td>
+                <td>Selesai</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table width="50%" class="tabel_barang" style="font-size:16px;">
+        <thead>
+            <tr>
+                <td>KETERANGAN</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+        </tbody>
+    </table>
+    <div style="clear:both"></div>
 </body>
 
 </html>

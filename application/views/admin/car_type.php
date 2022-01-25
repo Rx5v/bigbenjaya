@@ -83,28 +83,29 @@
     // Function to open Modal add type
     $("#addButton").click(function() {
         $(".modal").modal('show'); // open form modal
-        $("#formAdd").submit(function(e) {
-            e.preventDefault() // to prevent web refresh
-            $.ajax({
-                type: "POST",
-                url: "<?= base_url('car/save/1') ?>", // Url to controller
-                dataType: "JSON",
-                data: $("#formAdd").serialize(), //get data from form input                
-                success: function(data) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Success!',
-                        text: 'Your data has been saved!',
-                    })
-                    showData(); // call this function again to refresh table
-                    $(".modal").modal('hide'); // close form modal
-                },
-                error: function() {
-                    console.log('error');
-                }
-            });
-        })
 
+
+    })
+    $("#formAdd").submit(function(e) {
+        e.preventDefault() // to prevent web refresh
+        $.ajax({
+            type: "POST",
+            url: "<?= base_url('car/save/1') ?>", // Url to controller
+            dataType: "JSON",
+            data: $("#formAdd").serialize(), //get data from form input                
+            success: function(data) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success!',
+                    text: 'Your data has been saved!',
+                })
+                showData(); // call this function again to refresh table
+                $(".modal").modal('hide'); // close form modal
+            },
+            error: function() {
+                console.log('error');
+            }
+        });
     })
 
     function remove(id) {

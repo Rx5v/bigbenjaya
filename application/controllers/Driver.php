@@ -95,7 +95,7 @@ class Driver extends CI_Controller
         if (!$cek) {
             $pict = $this->input->post('oldPict');
         } else {
-            $pict = $cek;
+            $pict = $cek; 
         }
 
         $data = [

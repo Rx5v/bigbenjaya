@@ -65,13 +65,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="tanggalPengambilan">Tanggal Pengambilan</label>
-                                        <input type="date" name="tanggalPengambilan" class="form-control form-control-border border-width-2" id="tanggalPengambilan">
+                                        <input type="datetime-local" name="tanggalPengambilan" class="form-control form-control-border border-width-2" id="tanggalPengambilan">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="tanggalPengembalian">Tanggal Pengembalian</label>
-                                        <input type="date" name="tanggalPengembalian" class="form-control form-control-border border-width-2" id="tanggalPengembalian">
+                                        <input type="datetime-local" name="tanggalPengembalian" class="form-control form-control-border border-width-2" id="tanggalPengembalian">
                                     </div>
                                 </div>
                                 <div class="col-md-12 mt-3 text-center">

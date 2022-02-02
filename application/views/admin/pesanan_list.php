@@ -250,4 +250,29 @@
             })
         }
     })
+
+    // Print    
+    $(document).on('click', '.btn-print', function(e) {
+        e.preventDefault()
+        let id = $(this).data('id')
+        if (confirm("Print surat jalan pesanan ini ?") == true) {
+            $.ajax({
+                type: "POST",
+                url: "<?= base_url() ?>/pesanan/updatecar",
+                async: true,
+                data: {
+                    id: id
+                },
+
+                success: function(data) {
+                    setTimeout(function() {
+                        window.open('<?= base_url() ?>/pesanan/printSuratJalan/' + id, '_blank');
+                    }, 500)
+                },
+                error: function() {
+                    console.log("error")
+                }
+            })
+        }
+    })
 </script>

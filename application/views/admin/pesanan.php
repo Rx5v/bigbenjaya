@@ -86,7 +86,7 @@
                                 <div class="col-sm-10">
                                     <select name="pengemudi" class="form-control" id="pengemudi">
                                         <option value="" selected disabled hidden>Nama Pengemudi</option>
-                                        <?php foreach ($this->db->get('driver')->result() as $dv) : ?>
+                                        <?php foreach ($this->db->where('status_id', 1)->get('driver')->result() as $dv) : ?>
                                             <option value="<?= $dv->id ?>"><?= $dv->name ?></option>
                                         <?php endforeach ?>
                                     </select>

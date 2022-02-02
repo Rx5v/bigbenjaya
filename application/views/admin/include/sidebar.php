@@ -100,6 +100,12 @@
                     </ul>
                 </li>
                 <li class="nav-item">
+                    <a href="<?= base_url('pemesanan') ?>" class="nav-link">
+                        <i class="fas fa-shipping-fast nav-icon"></i>
+                        <p>Pemesanan</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="<?= base_url('user') ?>" class="nav-link">
                         <i class="fas fa-users nav-icon"></i>
                         <p>User</p>

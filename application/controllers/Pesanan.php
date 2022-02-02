@@ -78,7 +78,7 @@ class Pesanan extends CI_Controller
             $row[] = $result->created_at;
             $row[] = '<div class="text-center">' .
                 '<button type="button" class="btn btn-sm btn-edit" data-id="' . $result->order_number . '"><i class="fas fa-edit text-primary"></i></button>' .
-                '<a class="btn btn-sm btn-print" href="' . base_url() . 'pesanan/printSuratJalan/' . $result->order_number . '" target="_blank"><i class="fas fa-print text-dark"></i></a>' .
+                '<button type="button" class="btn btn-sm btn-print" data-id="' . $result->order_number . '"><i class="fas fa-print text-dark"></i></button>' .
                 '<button type="button" class="btn btn-sm btn-cancel" data-id="' . $result->order_number . '"><i class="fas fa-trash text-danger"></i></button>' .
                 '</div>';
             $data[] = $row;
@@ -112,6 +112,7 @@ class Pesanan extends CI_Controller
         $id = $this->input->post('id');
         $list = "";
         $data = $this->db->where('car_type_id', $id)
+            ->where('status_id', 1)
             ->get('car')
             ->result();
         foreach ($data as $dt) {
@@ -145,6 +146,28 @@ class Pesanan extends CI_Controller
             ->update('order_head', $data);
 
         echo json_encode($result);
+    }
+
+    public function updatecar()
+    {
+        $id = $this->input->post('id');
+        $order = $this->db->where('order_number', $id)
+            ->get('order_detail')
+            ->result();
+        foreach ($order as $od) {
+            $car = $od->car_id;
+            $driver = $od->driver_id;
+        }
+
+        $data = [
+            'status_id' => 2,
+        ];
+
+        $this->db->where('id', $car);
+        $this->db->update('car', $data);
+
+        $this->db->where('id', $driver);
+        $this->db->update('driver', $data);
     }
 
     public function printSuratJalan($id)

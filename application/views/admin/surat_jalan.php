@@ -176,7 +176,6 @@
             </tr>
         </tbody>
     </table>
-
     <table width="50%" class="tabel_barang" style="font-size:16px;">
         <thead>
             <tr>
@@ -197,6 +196,15 @@
                 <td>&nbsp;</td>
             </tr>
         </tbody>
+    </table>
+    <table width="65%" style="font-size:16px;">
+        <tr>
+            <td width="15%" style="text-align: left;">Km Awal</td>
+            <td width="25%" class="input">&nbsp;&nbsp;</td>
+            <td width="1%"></td>
+            <td width="15%" style="text-align: left;">Km Akhir</td>
+            <td width="25%" class="input">&nbsp;&nbsp;</td>
+        </tr>
     </table>
     <div style="clear:both"></div>
 </body>

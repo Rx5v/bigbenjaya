@@ -107,13 +107,13 @@
                             <div class="form-group row">
                                 <label for="waktujemput" class="col-sm-2 col-form-label">Waktu Penjemputan</label>
                                 <div class="col-sm-10">
-                                    <input type="date" name="waktujemput" class="form-control" id="waktujemput" placeholder="Waktu Penjemputan">
+                                    <input type="datetime-local" name="waktujemput" class="form-control" id="waktujemput" placeholder="Waktu Penjemputan">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="pengembalian" class="col-sm-2 col-form-label">Rencana Pengembalian</label>
                                 <div class="col-sm-10">
-                                    <input type="date" name="pengembalian" class="form-control" id="pengembalian" placeholder="Rencana Pengembalian">
+                                    <input type="datetime-local" name="pengembalian" class="form-control" id="pengembalian" placeholder="Rencana Pengembalian">
                                 </div>
                             </div>
                         </div>

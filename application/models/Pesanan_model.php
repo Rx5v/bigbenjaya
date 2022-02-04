@@ -71,7 +71,8 @@ class Pesanan_model extends CI_Model
 
         if ($id != null || $id != "") {
             $head = array(
-                'status'    => 2,
+                'return_date'   => $this->input->post('pengembalian'),
+                'status'        => 2,
             );
             $this->db->where('order_number', $id);
             $this->db->update('order_head', $head);

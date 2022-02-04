@@ -113,7 +113,7 @@
                             <div class="form-group row">
                                 <label for="pengembalian" class="col-sm-2 col-form-label">Rencana Pengembalian</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="pengembalian" class="form-control" id="pengembalian" placeholder="Rencana Pengembalian" readonly>
+                                    <input type="datetime-local" name="pengembalian" class="form-control" id="pengembalian" placeholder="Rencana Pengembalian">
                                 </div>
                             </div>
                         </div>
